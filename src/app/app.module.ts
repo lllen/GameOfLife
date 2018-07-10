@@ -6,13 +6,11 @@ import {FormsModule} from '@angular/forms';
 
 import {MaterialModule} from './material/material.module';
 import { GridComponent } from './grid/grid.component';
-import { ControlsComponent } from './controls/controls.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GridComponent,
-    ControlsComponent,
+    GridComponent
   ],
   imports: [
     BrowserModule,

@@ -26,12 +26,13 @@ export class GridComponent implements OnInit {
 
   play(){
     this.gridService.play();
-    setInterval(()=>{
+    this.timer = setInterval(()=>{
       this.mas = this.gridService.play();
     }, 300);
   }
 
   clear(){
+    clearInterval(this.timer);
     this.gridService.clear();
   }
 }

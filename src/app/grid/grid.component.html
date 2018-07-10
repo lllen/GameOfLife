@@ -1,0 +1,21 @@
+<div class="container">
+  <table>
+    <tr *ngFor="let elements of mas; let i = index">
+      <td
+        *ngFor="let element of elements; let j = index"
+        [style.background-color]="element ? 'red': 'grey'"
+        (click)="changeState(i, j)">
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div class="button-container">
+  <button mat-stroked-button color="primary" (click)="play()"><i class="fas fa-play"></i></button>
+  <button mat-stroked-button color="accent" (click)="clear()"><i class="fas fa-reply"></i></button>
+  <button mat-stroked-button color="primary" (click)="random()"><i class="fas fa-random"></i></button>
+  <mat-slider></mat-slider>
+</div>
+
+
+<!-- [ngClass]="{'alive': evr === evd}" -->

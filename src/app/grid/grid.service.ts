@@ -63,7 +63,19 @@ size = 32;
   }
 
   random(){
+    let randomNumber;
+    for(let i = 0; i < this.mas.length; i++){
+      for(let j = 0; j < this.mas[i].length; j++){
+        randomNumber = Math.round( Math.random() * 10 );
+        this.isEven(randomNumber) ? this.mas[i][j] = 1 : this.mas[i][j] = 0;
+      }
+    }
+    return this.mas;
+  }
 
+  isEven(number): boolean{
+    if (number % 2 === 0) return true;
+    return false;
   }
 
   changeState(i, j){

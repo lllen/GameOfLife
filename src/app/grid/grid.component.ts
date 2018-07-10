@@ -42,4 +42,9 @@ export class GridComponent implements OnInit {
     this.gridService.clear();
     this.value = this.min;
   }
+
+  random(){
+    this.mas = this.gridService.random();
+  }
+
 }

@@ -10,8 +10,14 @@ export class GridComponent implements OnInit {
 
   timer;
   size = 32;
-  range = Array(this.size).fill(null).map((x, i) => i);
   mas;
+  max = 1000;
+  min = 100;
+  value = 100;
+  step = 50;
+
+  invert = true;
+  thumbLabel = true;
 
   constructor(private gridService: GridService) {
   }
@@ -28,11 +34,12 @@ export class GridComponent implements OnInit {
     this.gridService.play();
     this.timer = setInterval(()=>{
       this.mas = this.gridService.play();
-    }, 300);
+    }, this.value);
   }
 
   clear(){
     clearInterval(this.timer);
     this.gridService.clear();
+    this.value = this.min;
   }
 }

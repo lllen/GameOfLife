@@ -3,7 +3,7 @@
     <tr *ngFor="let elements of mas; let i = index">
       <td
         *ngFor="let element of elements; let j = index"
-        [style.background-color]="element ? 'red': 'grey'"
+        [style.background-color]="element ? '#4d88ff': '#f2f2f2'"
         (click)="changeState(i, j)">
       </td>
     </tr>
@@ -14,7 +14,14 @@
   <button mat-stroked-button color="primary" (click)="play()"><i class="fas fa-play"></i></button>
   <button mat-stroked-button color="accent" (click)="clear()"><i class="fas fa-reply"></i></button>
   <button mat-stroked-button color="primary" (click)="random()"><i class="fas fa-random"></i></button>
-  <mat-slider></mat-slider>
+  <mat-slider
+    [invert]="invert"
+    [max]="max"
+    [min]="min"
+    [step]="step"
+    [thumbLabel]="thumbLabel"
+    [(ngModel)]="value">
+</mat-slider>
 </div>
 
 

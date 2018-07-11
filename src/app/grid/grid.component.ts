@@ -10,41 +10,45 @@ export class GridComponent implements OnInit {
 
   timer;
   size = 32;
-  mas;
+  matrix;
   max = 1000;
   min = 100;
-  value = 100;
+  speed = 100;
   step = 50;
-
   invert = true;
   thumbLabel = true;
 
   constructor(private gridService: GridService) {
   }
 
-  ngOnInit() {
-    this.mas = this.gridService.mas;
+  ngOnInit(){
+    this.matrix = this.gridService.matrix;
   }
 
-  changeState(i, j){
+  changeState(i: number, j: number): void{
     this.gridService.changeState(i, j);
   }
 
-  play(){
-    this.gridService.play();
+  play(): void{
+    this.stopTimer();
+     this.gridService.play();
     this.timer = setInterval(()=>{
-      this.mas = this.gridService.play();
-    }, this.value);
+       this.gridService.play();
+    }, this.speed);
   }
 
-  clear(){
+  stopTimer(): void{
     clearInterval(this.timer);
-    this.gridService.clear();
-    this.value = this.min;
   }
 
-  random(){
-    this.mas = this.gridService.random();
+  clear(): void{
+    this.stopTimer();
+    this.gridService.clear();
+    this.speed = this.min;
+  }
+
+  random(): void{
+    this.gridService.random();
   }
 
 }

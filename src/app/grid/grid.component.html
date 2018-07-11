@@ -1,6 +1,6 @@
 <div class="container">
   <table>
-    <tr *ngFor="let elements of mas; let i = index">
+    <tr *ngFor="let elements of matrix; let i = index">
       <td
         *ngFor="let element of elements; let j = index"
         [style.background-color]="element ? '#4d88ff': '#f2f2f2'"
@@ -20,7 +20,8 @@
     [min]="min"
     [step]="step"
     [thumbLabel]="thumbLabel"
-    [(ngModel)]="value">
+    [(ngModel)]="speed"
+    (ngModelChange)="play()">
 </mat-slider>
 </div>
 
